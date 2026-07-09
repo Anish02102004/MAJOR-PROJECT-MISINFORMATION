@@ -12,6 +12,39 @@ The app is designed to support research and fact-checking around dementia-relate
 - Dataset files for training, testing, and evaluation.
 - Basic performance and reporting utilities for research workflows.
 
+## RAG System Details
+The project uses a retrieval-augmented generation style pipeline to support fact-checking and explanation. The RAG layer is built around three retrieval modes:
+
+- Semantic RAG: searches the local PDF knowledge base and adds context-specific medical evidence based on the claim.
+- Keyword RAG: uses keyword matching against the PDF content and a small topic database for symptoms, risk factors, and diagnosis.
+- Hybrid RAG: combines semantic search and keyword search, removes duplicate evidence, and returns a merged result set.
+
+The retrieval layer is designed to work with dementia-related claims and is focused on evidence-backed responses instead of free-form generation.
+
+### Evidence Sources
+- Local PDF knowledge base loaded by the app.
+- Medical consensus statements stored inside the application.
+- Research-oriented fallback facts for prevention, treatment, and misinformation patterns.
+- Web research evidence from the research agent, including sources such as PubMed, WHO, FDA, CDC, and the Alzheimer’s Association when available.
+
+### How the RAG Pipeline Works
+1. The user enters a dementia-related claim.
+2. The app searches the local knowledge base using semantic similarity.
+3. If needed, keyword matching and pattern-based rules add more targeted evidence.
+4. The web research layer can add external evidence for stronger fact-checking.
+5. The app returns evidence items with a source label, type, and RAG category.
+
+### Performance Tracking
+The app also records RAG metrics for each retrieval mode:
+- Total queries
+- Total evidence found
+- Average evidence per query
+- Average processing time
+- Query success rate
+- Evidence relevance score
+
+These metrics are used to compare semantic, keyword, and hybrid retrieval behavior over time.
+
 ## How It Works
 1. A user submits a claim or text through the web app.
 2. The model analyzes the text and predicts whether it looks like misinformation.
