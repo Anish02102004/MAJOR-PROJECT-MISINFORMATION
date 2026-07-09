@@ -5,6 +5,17 @@ This project is a Flask-based web application for detecting dementia-related mis
 
 The app is designed to support research and fact-checking around dementia-related claims by comparing text against learned patterns, reference datasets, and evidence gathered from web research sources.
 
+## Need of the System
+The system is needed because misinformation about dementia can spread quickly and influence patients, caregivers, and the public. False claims about cures, causes, prevention, or treatments can delay proper care and create unsafe decisions.
+
+This project helps address that problem by giving users a research-assisted tool that can:
+- identify suspicious dementia-related claims,
+- support decisions with retrieved evidence,
+- reduce reliance on unsupported health information,
+- and provide a practical fact-checking workflow for research or educational use.
+
+The RAG layer is especially useful because it does not depend only on model prediction. It adds evidence from local documents and medical knowledge so the result is more explainable and easier to verify.
+
 ## Key Features
 - Web interface built with Flask and HTML templates.
 - Dementia misinformation detection using a fine-tuned transformer model.
