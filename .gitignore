@@ -1,0 +1,9 @@
+Fine_tune.py
+tempCodeRunnerFile.py
+Environment variables
+*.pdf
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
